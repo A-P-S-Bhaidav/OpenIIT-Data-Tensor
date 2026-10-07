@@ -1,0 +1,29 @@
+{
+  "per_turn_update_ms_with_reason_codes": {
+    "p50": 106.77,
+    "p90": 115.19,
+    "p95": 123.66,
+    "p99": 162.83,
+    "max": 251.09,
+    "n_updates": 1806
+  },
+  "per_turn_update_ms_score_only": {
+    "p50": 73.5,
+    "p90": 82.67,
+    "p95": 86.09,
+    "p99": 120.69,
+    "max": 150.32,
+    "n_updates": 1806
+  },
+  "end_of_call_ms": {
+    "p50": 97.98,
+    "p90": 105.36,
+    "p95": 108.69,
+    "p99": 132.9,
+    "max": 157.67,
+    "n_updates": 150
+  },
+  "calls": 150,
+  "budget_ms": 300,
+  "hardware": "single CPU process, no batching, Python 3.11"
+}

@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Environment and editor
+.env
+.DS_Store
+.idea/
+.vscode/
+
+# Large or regenerable model artifacts (rebuilt by `make train`)
+artifacts/*.joblib
+artifacts/*.pkl

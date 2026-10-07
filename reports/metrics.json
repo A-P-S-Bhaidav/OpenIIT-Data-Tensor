@@ -1,0 +1,787 @@
+{
+  "versions": {
+    "package": "1.0.0",
+    "lexicon": "2026.10.1",
+    "policy": "2026.10.1"
+  },
+  "label_definition": {
+    "grace_days": 3,
+    "min_fraction": 0.9
+  },
+  "data": {
+    "ptps": 3696,
+    "keep_rate": 0.28626,
+    "outcome_status": {
+      "broken": 1914,
+      "kept_on_time": 950,
+      "partial": 396,
+      "paid_after_window": 328,
+      "kept_late_within_grace": 108
+    },
+    "split_sizes": {
+      "train": 2572,
+      "test": 563,
+      "validation": 561
+    },
+    "channels": {
+      "tele_agent": 2841,
+      "field": 605,
+      "voice_bot": 250
+    }
+  },
+  "label_sensitivity_keep_rate": [
+    {
+      "grace_days": 0,
+      "min_fraction": 0.5,
+      "keep_rate": 0.28382
+    },
+    {
+      "grace_days": 0,
+      "min_fraction": 0.75,
+      "keep_rate": 0.25758
+    },
+    {
+      "grace_days": 0,
+      "min_fraction": 0.9,
+      "keep_rate": 0.25703
+    },
+    {
+      "grace_days": 0,
+      "min_fraction": 1.0,
+      "keep_rate": 0.25649
+    },
+    {
+      "grace_days": 1,
+      "min_fraction": 0.5,
+      "keep_rate": 0.30005
+    },
+    {
+      "grace_days": 1,
+      "min_fraction": 0.75,
+      "keep_rate": 0.26677
+    },
+    {
+      "grace_days": 1,
+      "min_fraction": 0.9,
+      "keep_rate": 0.26596
+    },
+    {
+      "grace_days": 1,
+      "min_fraction": 1.0,
+      "keep_rate": 0.26569
+    },
+    {
+      "grace_days": 3,
+      "min_fraction": 0.5,
+      "keep_rate": 0.33415
+    },
+    {
+      "grace_days": 3,
+      "min_fraction": 0.75,
+      "keep_rate": 0.28707
+    },
+    {
+      "grace_days": 3,
+      "min_fraction": 0.9,
+      "keep_rate": 0.28626
+    },
+    {
+      "grace_days": 3,
+      "min_fraction": 1.0,
+      "keep_rate": 0.28598
+    },
+    {
+      "grace_days": 5,
+      "min_fraction": 0.5,
+      "keep_rate": 0.35877
+    },
+    {
+      "grace_days": 5,
+      "min_fraction": 0.75,
+      "keep_rate": 0.30628
+    },
+    {
+      "grace_days": 5,
+      "min_fraction": 0.9,
+      "keep_rate": 0.30492
+    },
+    {
+      "grace_days": 5,
+      "min_fraction": 1.0,
+      "keep_rate": 0.30465
+    },
+    {
+      "grace_days": 7,
+      "min_fraction": 0.5,
+      "keep_rate": 0.37473
+    },
+    {
+      "grace_days": 7,
+      "min_fraction": 0.75,
+      "keep_rate": 0.32251
+    },
+    {
+      "grace_days": 7,
+      "min_fraction": 0.9,
+      "keep_rate": 0.32089
+    },
+    {
+      "grace_days": 7,
+      "min_fraction": 1.0,
+      "keep_rate": 0.32035
+    }
+  ],
+  "feature_selection": {
+    "candidates": 161,
+    "grid": [
+      {
+        "k": 30,
+        "cv_auc": 0.78866
+      },
+      {
+        "k": 45,
+        "cv_auc": 0.79063
+      },
+      {
+        "k": 60,
+        "cv_auc": 0.79113
+      },
+      {
+        "k": 80,
+        "cv_auc": 0.78909
+      },
+      {
+        "k": 100,
+        "cv_auc": 0.7855
+      },
+      {
+        "k": 161,
+        "cv_auc": 0.78597
+      }
+    ],
+    "selected_k": 45,
+    "rule": "smallest k within 0.002 of best grouped-CV AUC on dev"
+  },
+  "keep_model_test": {
+    "n": 563,
+    "positives": 167,
+    "base_rate": 0.29663,
+    "auc": 0.74188,
+    "pr_auc": 0.58484,
+    "brier": 0.17138,
+    "log_loss": 0.52711,
+    "ece": 0.04832,
+    "mean_pred": 0.30204,
+    "auc_ci95": [
+      0.69546,
+      0.78804
+    ]
+  },
+  "keep_model_test_uncalibrated": {
+    "n": 563,
+    "positives": 167,
+    "base_rate": 0.29663,
+    "auc": 0.74236,
+    "pr_auc": 0.58274,
+    "brier": 0.17103,
+    "log_loss": 0.52457,
+    "ece": 0.04091,
+    "mean_pred": 0.29924
+  },
+  "keep_model_dev_oof": {
+    "n": 3133,
+    "positives": 891,
+    "base_rate": 0.28439,
+    "auc": 0.79195,
+    "pr_auc": 0.6057,
+    "brier": 0.15455,
+    "log_loss": 0.47887,
+    "ece": 0.02234,
+    "mean_pred": 0.28426
+  },
+  "segments_test": {
+    "acct_portfolio": [
+      {
+        "acct_portfolio": "consumer_durable",
+        "n": 58,
+        "keep_rate": 0.27586,
+        "mean_pred": 0.3298,
+        "auc": 0.82292,
+        "ece": 0.13754,
+        "ece_uncalibrated": 0.14251
+      },
+      {
+        "acct_portfolio": "credit_card",
+        "n": 69,
+        "keep_rate": 0.24638,
+        "mean_pred": 0.27978,
+        "auc": 0.71493,
+        "ece": 0.08934,
+        "ece_uncalibrated": 0.08503
+      },
+      {
+        "acct_portfolio": "mfi_jlg",
+        "n": 100,
+        "keep_rate": 0.3,
+        "mean_pred": 0.30567,
+        "auc": 0.74571,
+        "ece": 0.06859,
+        "ece_uncalibrated": 0.06828
+      },
+      {
+        "acct_portfolio": "msme",
+        "n": 55,
+        "keep_rate": 0.29091,
+        "mean_pred": 0.26459,
+        "auc": 0.89263,
+        "ece": 0.14324,
+        "ece_uncalibrated": 0.14219
+      },
+      {
+        "acct_portfolio": "pl_salaried",
+        "n": 163,
+        "keep_rate": 0.33129,
+        "mean_pred": 0.32166,
+        "auc": 0.66684,
+        "ece": 0.09559,
+        "ece_uncalibrated": 0.08821
+      },
+      {
+        "acct_portfolio": "two_wheeler",
+        "n": 118,
+        "keep_rate": 0.28814,
+        "mean_pred": 0.28866,
+        "auc": 0.77731,
+        "ece": 0.06885,
+        "ece_uncalibrated": 0.07834
+      }
+    ],
+    "acct_language": [
+      {
+        "acct_language": "english",
+        "n": 107,
+        "keep_rate": 0.26168,
+        "mean_pred": 0.24792,
+        "auc": 0.61528,
+        "ece": 0.09586,
+        "ece_uncalibrated": 0.1027
+      },
+      {
+        "acct_language": "hinglish",
+        "n": 310,
+        "keep_rate": 0.31613,
+        "mean_pred": 0.30823,
+        "auc": 0.73956,
+        "ece": 0.04222,
+        "ece_uncalibrated": 0.05614
+      },
+      {
+        "acct_language": "kanglish",
+        "n": 146,
+        "keep_rate": 0.28082,
+        "mean_pred": 0.32855,
+        "auc": 0.83624,
+        "ece": 0.09654,
+        "ece_uncalibrated": 0.11306
+      }
+    ],
+    "acct_income_type": [
+      {
+        "acct_income_type": "daily_wage",
+        "n": 81,
+        "keep_rate": 0.23457,
+        "mean_pred": 0.31263,
+        "auc": 0.77589,
+        "ece": 0.08421,
+        "ece_uncalibrated": 0.076
+      },
+      {
+        "acct_income_type": "salaried",
+        "n": 291,
+        "keep_rate": 0.30928,
+        "mean_pred": 0.3193,
+        "auc": 0.72366,
+        "ece": 0.0839,
+        "ece_uncalibrated": 0.07991
+      },
+      {
+        "acct_income_type": "self_employed",
+        "n": 191,
+        "keep_rate": 0.30366,
+        "mean_pred": 0.27125,
+        "auc": 0.77534,
+        "ece": 0.09518,
+        "ece_uncalibrated": 0.11674
+      }
+    ],
+    "channel": [
+      {
+        "channel": "field",
+        "n": 79,
+        "keep_rate": 0.3038,
+        "mean_pred": 0.19825,
+        "auc": 0.62652,
+        "ece": 0.12779,
+        "ece_uncalibrated": 0.15082
+      },
+      {
+        "channel": "tele_agent",
+        "n": 456,
+        "keep_rate": 0.28728,
+        "mean_pred": 0.31692,
+        "auc": 0.75861,
+        "ece": 0.05029,
+        "ece_uncalibrated": 0.04907
+      },
+      {
+        "channel": "voice_bot",
+        "n": 28,
+        "keep_rate": 0.42857,
+        "mean_pred": 0.35239,
+        "auc": 0.80208,
+        "ece": 0.25822,
+        "ece_uncalibrated": 0.25843
+      }
+    ],
+    "acct_lender_type": [
+      {
+        "acct_lender_type": "Fintech NBFC",
+        "n": 110,
+        "keep_rate": 0.37273,
+        "mean_pred": 0.33294,
+        "auc": 0.75115,
+        "ece": 0.12343,
+        "ece_uncalibrated": 0.11364
+      },
+      {
+        "acct_lender_type": "NBFC",
+        "n": 100,
+        "keep_rate": 0.27,
+        "mean_pred": 0.28952,
+        "auc": 0.793,
+        "ece": 0.10982,
+        "ece_uncalibrated": 0.10942
+      },
+      {
+        "acct_lender_type": "NBFC (MSME)",
+        "n": 32,
+        "keep_rate": 0.34375,
+        "mean_pred": 0.28279,
+        "auc": 0.91342,
+        "ece": 0.24686,
+        "ece_uncalibrated": 0.2463
+      },
+      {
+        "acct_lender_type": "NBFC-MFI",
+        "n": 46,
+        "keep_rate": 0.34783,
+        "mean_pred": 0.29388,
+        "auc": 0.86042,
+        "ece": 0.16163,
+        "ece_uncalibrated": 0.16523
+      },
+      {
+        "acct_lender_type": "Private bank",
+        "n": 146,
+        "keep_rate": 0.26712,
+        "mean_pred": 0.29889,
+        "auc": 0.64558,
+        "ece": 0.12249,
+        "ece_uncalibrated": 0.12312
+      },
+      {
+        "acct_lender_type": "Small finance bank",
+        "n": 129,
+        "keep_rate": 0.25581,
+        "mean_pred": 0.29662,
+        "auc": 0.73043,
+        "ece": 0.07294,
+        "ece_uncalibrated": 0.09981
+      }
+    ]
+  },
+  "label_robustness_test": [
+    {
+      "grace_days": 0,
+      "min_fraction": 0.5,
+      "test_auc": 0.75945
+    },
+    {
+      "grace_days": 0,
+      "min_fraction": 0.9,
+      "test_auc": 0.76362
+    },
+    {
+      "grace_days": 0,
+      "min_fraction": 1.0,
+      "test_auc": 0.76362
+    },
+    {
+      "grace_days": 1,
+      "min_fraction": 0.5,
+      "test_auc": 0.75627
+    },
+    {
+      "grace_days": 1,
+      "min_fraction": 0.9,
+      "test_auc": 0.7608
+    },
+    {
+      "grace_days": 1,
+      "min_fraction": 1.0,
+      "test_auc": 0.7608
+    },
+    {
+      "grace_days": 3,
+      "min_fraction": 0.5,
+      "test_auc": 0.73761
+    },
+    {
+      "grace_days": 3,
+      "min_fraction": 0.9,
+      "test_auc": 0.74188
+    },
+    {
+      "grace_days": 3,
+      "min_fraction": 1.0,
+      "test_auc": 0.74188
+    },
+    {
+      "grace_days": 5,
+      "min_fraction": 0.5,
+      "test_auc": 0.7192
+    },
+    {
+      "grace_days": 5,
+      "min_fraction": 0.9,
+      "test_auc": 0.72491
+    },
+    {
+      "grace_days": 5,
+      "min_fraction": 1.0,
+      "test_auc": 0.72491
+    },
+    {
+      "grace_days": 7,
+      "min_fraction": 0.5,
+      "test_auc": 0.71346
+    },
+    {
+      "grace_days": 7,
+      "min_fraction": 0.9,
+      "test_auc": 0.71769
+    },
+    {
+      "grace_days": 7,
+      "min_fraction": 1.0,
+      "test_auc": 0.71769
+    }
+  ],
+  "baselines_test_auc": {
+    "incumbent_fixed_rule": 0.5,
+    "history_keep_rate_heuristic": 0.52291,
+    "account_history_terms_only": 0.70306,
+    "conversation_only": 0.74636,
+    "all_candidates_no_selection": 0.75599,
+    "selected_without_voice": 0.72901,
+    "selected_without_agent_track_record": 0.7428,
+    "logistic_regression_all": 0.75954,
+    "final_model": 0.74188
+  },
+  "random_arm_check": {
+    "n": 18,
+    "auc": 0.71429
+  },
+  "signal_family_attribution_test": {
+    "Account and promise terms": 0.3479,
+    "What was said": 0.2438,
+    "How it was said (voice)": 0.1608,
+    "How the conversation went": 0.153,
+    "Account history": 0.0564,
+    "Agent signals": 0.0381
+  },
+  "top_features_mean_abs_shap": {
+    "terms_days_to_promise": 0.2343,
+    "borrower_stated_amount": 0.2335,
+    "cust_hedge_rate": 0.1881,
+    "voice_max_pause_ms": 0.1519,
+    "cust_closing_escape": 0.1036,
+    "terms_promise_dom": 0.0957,
+    "acct_ability_to_pay": 0.0888,
+    "negotiation_turns": 0.0832,
+    "terms_amount_to_emi": 0.0773,
+    "cust_firm_commitment": 0.072,
+    "acct_bureau_ord": 0.0689,
+    "terms_salary_gap_days": 0.0671,
+    "terms_salary_days_to_next_credit": 0.0638,
+    "dial_answer_rate_30d": 0.0637,
+    "cust_hedge": 0.0621,
+    "voice_response_pause_to_ask_ms": 0.0567,
+    "voice_max_response_pause_to_ask_ms": 0.0558,
+    "call_duration_s": 0.0554,
+    "hist_days_since_last_ptp": 0.0521,
+    "agent_proposed_date_first": 0.0495,
+    "acct_lender_type": 0.045,
+    "agent_talk_share": 0.0447,
+    "cust_hardship_business": 0.0444,
+    "agent_silent_terms_rate": 0.0406,
+    "voice_min_asr_conf": 0.0356
+  },
+  "broken_flagging_test": {
+    "at_20pct_false_alarm_budget": {
+      "threshold": 0.1985,
+      "broken_flagged_share": 0.55808,
+      "kept_false_alarm_share": 0.21557,
+      "flag_rate": 0.45648,
+      "precision_broken": 0.85992
+    },
+    "at_policy_low_threshold": {
+      "threshold": 0.25,
+      "broken_flagged_share": 0.66414,
+      "kept_false_alarm_share": 0.28743,
+      "flag_rate": 0.5524,
+      "precision_broken": 0.84566
+    },
+    "at_policy_high_threshold": {
+      "threshold": 0.55,
+      "broken_flagged_share": 0.90909,
+      "kept_false_alarm_share": 0.5988,
+      "flag_rate": 0.81705,
+      "precision_broken": 0.78261
+    }
+  },
+  "type_model_cv_5x5": [
+    {
+      "variant": "supervised_only",
+      "macro_f1": 0.72522,
+      "macro_f1_std": 0.058,
+      "accuracy": 0.699,
+      "hardship_to_harsh_rate": 0.11018
+    },
+    {
+      "variant": "self_training",
+      "macro_f1": 0.73764,
+      "macro_f1_std": 0.04773,
+      "accuracy": 0.718,
+      "hardship_to_harsh_rate": 0.09018
+    },
+    {
+      "variant": "self_training_cost_sensitive",
+      "macro_f1": 0.72564,
+      "macro_f1_std": 0.05483,
+      "accuracy": 0.707,
+      "hardship_to_harsh_rate": 0.05927
+    }
+  ],
+  "type_model_confusion_cv": {
+    "labels": [
+      "genuine_feasible",
+      "genuine_infeasible",
+      "escape",
+      "third_party",
+      "repeat_promiser",
+      "agent_recorded_or_pushed"
+    ],
+    "matrix": [
+      [
+        42.8,
+        9.0,
+        0.2,
+        0.0,
+        2.0,
+        0.0
+      ],
+      [
+        13.8,
+        34.2,
+        2.2,
+        0.0,
+        0.8,
+        0.0
+      ],
+      [
+        2.8,
+        5.4,
+        22.8,
+        0.0,
+        2.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        18.0,
+        0.0,
+        0.0
+      ],
+      [
+        5.2,
+        6.8,
+        4.0,
+        0.0,
+        13.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        0.4,
+        10.6
+      ]
+    ]
+  },
+  "type_model_test_holdout": {
+    "n": 27,
+    "macro_f1": 0.72685,
+    "accuracy": 0.74074
+  },
+  "type_model_pseudo_labels_used": 1643,
+  "keep_rate_by_predicted_type_test": {
+    "agent_recorded_or_pushed": {
+      "n": 58,
+      "keep_rate": 0.1552,
+      "mean_p_keep": 0.1228
+    },
+    "escape": {
+      "n": 72,
+      "keep_rate": 0.1528,
+      "mean_p_keep": 0.1458
+    },
+    "genuine_feasible": {
+      "n": 160,
+      "keep_rate": 0.5562,
+      "mean_p_keep": 0.5473
+    },
+    "genuine_infeasible": {
+      "n": 110,
+      "keep_rate": 0.1909,
+      "mean_p_keep": 0.2325
+    },
+    "repeat_promiser": {
+      "n": 46,
+      "keep_rate": 0.0435,
+      "mean_p_keep": 0.1659
+    },
+    "third_party": {
+      "n": 117,
+      "keep_rate": 0.2991,
+      "mean_p_keep": 0.2705
+    }
+  },
+  "post_call_update_test": {
+    "horizon_hours": 30.0,
+    "n_unresolved": 521,
+    "auc_in_call": 0.75769,
+    "auc_after_post_call": 0.76976,
+    "ece_after_post_call": 0.05302,
+    "coefficients": {
+      "in_call_log_odds": 0.9451,
+      "post_payment_link_opened": 0.2983,
+      "post_confirmation_reply_yes": 0.0227,
+      "post_confirmation_reply_no": -0.7893,
+      "post_inbound_call_from_customer": -0.6233,
+      "post_confirmation_unanswered": -0.3701,
+      "post_hours_to_link_open": -0.0521
+    }
+  },
+  "policy_simulation_test": {
+    "treatment_mix": {
+      "supportive_restructure_or_human": 121,
+      "confirm_with_borrower": 117,
+      "renegotiate_or_restructure": 103,
+      "park_until_due": 99,
+      "part_payment_follow_up": 44,
+      "integrity_review_and_confirm": 41,
+      "stronger_treatment_short_parking": 21,
+      "park_with_mid_check": 17
+    },
+    "hardship_flagged_share": 0.50444,
+    "harsh_treatment_given_hardship": 0.0,
+    "annotated_infeasible_receiving_harsh": 0.0,
+    "broken_ptps_flagged_before_parking": 0.94949,
+    "broken_ptps_with_shorter_parking": 0.52525,
+    "kept_ptps_with_shorter_parking": 0.50898,
+    "contact_days_released_on_broken": 1187,
+    "contact_days_released_per_broken_ptp": 2.99747,
+    "keep_rate_parked_until_due": 0.64646,
+    "keep_rate_part_payment_follow_up": 0.13636
+  },
+  "streaming_test": {
+    "auc_by_fraction_heard": [
+      {
+        "fraction_of_call_heard": 0.1,
+        "auc": 0.58801
+      },
+      {
+        "fraction_of_call_heard": 0.2,
+        "auc": 0.58715
+      },
+      {
+        "fraction_of_call_heard": 0.3,
+        "auc": 0.58067
+      },
+      {
+        "fraction_of_call_heard": 0.4,
+        "auc": 0.64485
+      },
+      {
+        "fraction_of_call_heard": 0.5,
+        "auc": 0.67016
+      },
+      {
+        "fraction_of_call_heard": 0.6,
+        "auc": 0.71856
+      },
+      {
+        "fraction_of_call_heard": 0.7,
+        "auc": 0.75769
+      },
+      {
+        "fraction_of_call_heard": 0.8,
+        "auc": 0.76855
+      },
+      {
+        "fraction_of_call_heard": 0.9,
+        "auc": 0.76821
+      },
+      {
+        "fraction_of_call_heard": 1.0,
+        "auc": 0.76773
+      }
+    ],
+    "auc_at_first_confirmation_turn": 0.76682,
+    "auc_end_of_call_streaming_model": 0.76773,
+    "stopping_rule": {
+      "delta": 0.05,
+      "auc_at_decision": 0.76468,
+      "fired_before_end_share": 0.91322,
+      "median_fraction_heard": 0.72727,
+      "mean_turns_remaining_for_prompt": 3.42975
+    }
+  },
+  "agent_integrity": {
+    "agents": 30,
+    "flagged": [
+      "TA013",
+      "TA004",
+      "TA019",
+      "FA009",
+      "TA014",
+      "TA020",
+      "TA003"
+    ]
+  },
+  "agent_recorded_detection_annotated": {
+    "auc_type_prob": 1.0,
+    "note": "in-sample for annotated rows; see type_model_cv_5x5 for out-of-sample type metrics"
+  },
+  "trial_design": {
+    "baseline_keep_rate": 0.28626,
+    "per_arm_n_for_+3pp": 3671,
+    "per_arm_n_for_+5pp": 1345,
+    "per_arm_n_for_+3pp_clustered_icc0.05_m2": 3854
+  }
+}
