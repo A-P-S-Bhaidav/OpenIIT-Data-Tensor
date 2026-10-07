@@ -563,9 +563,3 @@ binaries are regenerable by `make train`.
 - **Multi-lingual prompt library**: expand beyond English, Hinglish and Kanglish
   to Tamil, Telugu and Marathi based on lender geography.
 
----
-
-## License
-
-This repository is submitted as part of the OpenIIT Data Tensor hackathon. The data
-is provided by CreditNirvana and is subject to their data-use agreement.
